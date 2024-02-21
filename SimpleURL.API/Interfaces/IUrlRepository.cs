@@ -2,7 +2,7 @@
 
 namespace SimpleURL.Data.Interfaces;
 
-public interface IRepository
+public interface IUrlRepository
 {
     Url GetByUrl(string shortUrl);
     Url AddUrl(Url url);

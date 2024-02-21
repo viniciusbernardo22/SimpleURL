@@ -4,7 +4,7 @@ using SimpleURL.Models;
 
 namespace SimpleURL.Data.Repositories;
 
-public class UrlRepository : IRepository
+public class UrlRepository : IUrlRepository
 {
     private readonly AppDbContext _dbContext;
 
