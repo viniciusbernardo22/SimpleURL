@@ -1,28 +1,29 @@
-﻿using SimpleURL.Data.Data;
-using SimpleURL.Data.Interfaces;
-using SimpleURL.Models;
+﻿using SimpleURL.API.Data;
+using SimpleURL.API.Interfaces;
+using SimpleURL.API.Models;
 
-namespace SimpleURL.Data.Repositories;
-
-public class UrlRepository : IUrlRepository
+namespace SimpleURL.API.Repositories
 {
-    private readonly AppDbContext _dbContext;
-
-    public UrlRepository(AppDbContext conn)
+    public class UrlRepository : IUrlRepository
     {
-        _dbContext = conn;
-    }
+        private readonly AppDbContext _dbContext;
+
+        public UrlRepository(AppDbContext conn)
+        {
+            _dbContext = conn;
+        }
     
-    public Url GetByUrl(string shortUrl)
-    {
-        return _dbContext.Urls.FirstOrDefault(u => u.ShortUrl == shortUrl);
+        public Url GetByUrl(string shortUrl)
+        {
+            return _dbContext.Urls.FirstOrDefault(u => u.ShortUrl == shortUrl);
 
-    }
+        }
 
-    public Url AddUrl(Url url)
-    {
-        _dbContext.Urls.Add(url);
-        _dbContext.SaveChanges();
-        return url;
+        public Url AddUrl(Url url)
+        {
+            _dbContext.Urls.Add(url);
+            _dbContext.SaveChanges();
+            return url;
+        }
     }
 }

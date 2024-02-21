@@ -1,21 +1,22 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SimpleURL.API.Controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-public class HealthController : ControllerBase
+namespace SimpleURL.API.Controllers
 {
-    [AllowAnonymous]
-    [NonAction]
-    [Route("/")]
-    public object GetStatus()
+    [ApiController]
+    [Route("api/[controller]")]
+    public class HealthController : ControllerBase
     {
-        return Ok(new
+        [AllowAnonymous]
+        [NonAction]
+        [Route("/")]
+        public object GetStatus()
         {
-            Status = "Ok",
-            Hora = DateTime.Now
-        });
+            return Ok(new
+            {
+                Status = "Ok",
+                Hora = DateTime.Now
+            });
+        }
     }
 }

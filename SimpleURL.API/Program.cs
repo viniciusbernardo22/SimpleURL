@@ -1,7 +1,6 @@
-using Microsoft.EntityFrameworkCore;
-using SimpleURL.Data.Data;
-using SimpleURL.Data.Interfaces;
-using SimpleURL.Data.Repositories;
+using SimpleURL.API.Data;
+using SimpleURL.API.Interfaces;
+using SimpleURL.API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseInMemoryDatabase("SimpleURLDB"));
+builder.Services.AddDbContext<AppDbContext>();
 
 builder.Services.AddScoped<IUrlRepository, UrlRepository>();
 

@@ -1,9 +1,10 @@
-﻿using SimpleURL.Models;
+﻿using SimpleURL.API.Models;
 
-namespace SimpleURL.Data.Interfaces;
-
-public interface IUrlRepository
+namespace SimpleURL.API.Interfaces
 {
-    Url GetByUrl(string shortUrl);
-    Url AddUrl(Url url);
+    public interface IUrlRepository
+    {
+        Url GetByUrl(string shortUrl);
+        Url AddUrl(Url url);
+    }
 }

@@ -1,28 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SimpleURL.Data.Interfaces;
+using SimpleURL.API.Interfaces;
 
-namespace SimpleURL.API.Controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-public class UrlController : ControllerBase
+namespace SimpleURL.API.Controllers
 {
-    private readonly IUrlRepository _urlRepository;
-
-    public UrlController(IUrlRepository urlRepository)
+    [ApiController]
+    [Route("api/[controller]")]
+    public class UrlController : ControllerBase
     {
-        _urlRepository = urlRepository;
-    }
+        private readonly IUrlRepository _urlRepository;
+
+        public UrlController(IUrlRepository urlRepository)
+        {
+            _urlRepository = urlRepository;
+        }
     
-    [HttpPost("shorten")]
-    public IActionResult ShortenUrl([FromBody] string originalUrl)
-    {
-        return Ok();
-    }
+        [HttpPost("shorten")]
+        public IActionResult ShortenUrl([FromBody] string originalUrl)
+        {
+            return Ok();
+        }
 
-    [HttpGet("{shortUrl}")]
-    public IActionResult RedirectUrl(string shortUrl)
-    {
-        return Ok();
+        [HttpGet("{shortUrl}")]
+        public IActionResult RedirectUrl(string shortUrl)
+        {
+            return Ok();
+        }
     }
 }
